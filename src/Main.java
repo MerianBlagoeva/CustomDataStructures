@@ -9,8 +9,8 @@ public class Main {
             arrayList.add(i + 1);
         }
 
-        for (int i = 0; i < arrayList.size(); i++) {
-            System.out.println(arrayList.get(i));
+        for (Integer integer : arrayList) {
+            System.out.println(integer);
         }
 
         SmartArray smartArray = new SmartArray();
