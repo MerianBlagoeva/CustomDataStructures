@@ -23,5 +23,6 @@ public class Main {
         }
 
         System.out.println(smartArray.get(5));
+        System.out.println(2);
     }
 }
