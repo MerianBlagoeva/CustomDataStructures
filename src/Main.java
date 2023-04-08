@@ -9,19 +9,19 @@ public class Main {
             arrayList.add(i + 1);
         }
 
-        for (Integer integer : arrayList) {
-            System.out.println(integer);
-        }
-
         SmartArray smartArray = new SmartArray();
 
         for (int i = 0; i < 5; i++) {
             smartArray.add(i + 1);
         }
-        for (int i = 0; i < smartArray.size(); i++) {
-            System.out.println(smartArray.get(i));
-        }
 
-        System.out.println(smartArray.get(5));
+        System.out.println(smartArray.contains(3));
+
+        System.out.println(smartArray.remove(2));
+
+        System.out.println(smartArray.contains(3));
+
+
+
     }
 }
