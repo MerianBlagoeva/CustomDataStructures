@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
 
@@ -11,7 +9,40 @@ public class Main {
         stack.push(42);
         stack.push(666);
 
-       stack.forEach(System.out::println);
+        stack.forEach(System.out::println);
+
+        System.out.println(stack.pop());
+
+        System.out.println(stack.isEmpty());
+
+        System.out.println(stack.peek());
+
+        System.out.println(stack.size());
+
+        SmartArray smartArray = new SmartArray();
+
+        smartArray.add(1);
+        smartArray.add(2);
+        smartArray.add(3);
+        smartArray.add(4);
+
+        System.out.println(smartArray.contains(4));
+
+        System.out.println(smartArray.isEmpty());
+
+        System.out.println(smartArray.get(0));
+
+        System.out.println(smartArray.size());
+
+        smartArray.remove(2);
+
+        smartArray.forEach(System.out::println);
+
+        System.out.println(smartArray.remove(1));
+
+        smartArray.add(13, 1);
+
+
 
     }
 }

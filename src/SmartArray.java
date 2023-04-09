@@ -98,7 +98,7 @@ public class SmartArray {
     }
 
     public boolean isEmpty() {
-        return size != 0;
+        return size == 0;
     }
 
 }
