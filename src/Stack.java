@@ -6,7 +6,7 @@ import java.util.function.Consumer;
 
 public class Stack {
     private static class Node {
-        private int element;
+        private final int element;
         private Node previous;
 
         private Node(int element) {

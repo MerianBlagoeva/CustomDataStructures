@@ -40,7 +40,7 @@ public class Main {
 
         System.out.println(smartArray.remove(1));
 
-        smartArray.add(13, 1);
+        smartArray.add(1, 13);
 
 
 
