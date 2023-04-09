@@ -3,25 +3,15 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
-        ArrayList<Integer> arrayList = new ArrayList<>();
+        Stack stack = new Stack();
 
-        for (int i = 0; i < 5; i++) {
-            arrayList.add(i + 1);
-        }
+        stack.push(13);
+        stack.push(69);
+        stack.push(73);
+        stack.push(42);
+        stack.push(666);
 
-        SmartArray smartArray = new SmartArray();
-
-        for (int i = 0; i < 5; i++) {
-            smartArray.add(i + 1);
-        }
-
-        System.out.println(smartArray.contains(3));
-
-        System.out.println(smartArray.remove(2));
-
-        System.out.println(smartArray.contains(3));
-
-
+       stack.forEach(System.out::println);
 
     }
 }
