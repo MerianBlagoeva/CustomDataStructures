@@ -41,5 +41,32 @@ public class Main {
         System.out.println(smartArray.remove(1));
 
         smartArray.add(1, 13);
+
+        System.out.println("--------------------------------------");
+
+
+        Node node = new Node(1);
+        Node node1 = new Node(2);
+        Node node2 = new Node(3);
+
+        node.next = node1;
+        node1.next = node2;
+
+        LinkedList linkedList = new LinkedList();
+        linkedList.addFirst(1);
+        linkedList.addFirst(2);
+        linkedList.addFirst(3);
+
+        System.out.println(linkedList.removeFirst());
+
+        System.out.println(linkedList.get(0));
+        System.out.println(linkedList.get(1));
+
+        linkedList.addFirst(3);
+
+        linkedList.addLast(4);
+        System.out.println(linkedList.removeLast());
+
+
     }
 }
