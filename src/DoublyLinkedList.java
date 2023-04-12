@@ -7,6 +7,21 @@ public class DoublyLinkedList {
     private Node tail;
     private int size;
 
+    public static class Node {
+        public int value;
+        public Node next;
+        public Node prev;
+
+        public Node(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return value + "";
+        }
+    }
+
     private void validateIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index " + index + " out of bounds for size " + size);

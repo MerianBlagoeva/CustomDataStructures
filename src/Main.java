@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
 
+        //Test main class
+
         Stack stack = new Stack();
 
         stack.push(13);
@@ -82,7 +84,9 @@ public class Main {
         linkedListTail.addLast(3);
         linkedListTail.addLast(4);
 
-
+        System.out.println(linkedListTail.toArray()[0]);
+        System.out.println(linkedListTail.get(0));
+        linkedListTail.forEach(System.out::println);
 
         System.out.println(linkedListTail.removeLast());
         System.out.println(linkedListTail.removeLast());
@@ -131,6 +135,7 @@ public class Main {
         System.out.println(doublyLinkedList.get(3));
         System.out.println(doublyLinkedList.get(2));
 
+        System.out.println(doublyLinkedList.toArray()[0]);
 
     }
 }

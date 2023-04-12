@@ -4,6 +4,19 @@ public class LinkedListTail {
     private Node head;
     private Node tail;
     private int size;
+    public static class Node {
+        public int value;
+        public Node next;
+
+        public Node(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return value + "";
+        }
+    }
 
     private void validateIndex(int index) {
         if (index < 0 || index >= size) {

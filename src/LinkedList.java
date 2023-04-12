@@ -4,6 +4,20 @@ public class LinkedList {
     private Node head;
     private int size;
 
+    public static class Node {
+        public int value;
+        public Node next;
+
+        public Node(int value) {
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return value + "";
+        }
+    }
+
     private void validateIndex(int index) {
         if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("Index " + index + " out of bounds for size " + size);
