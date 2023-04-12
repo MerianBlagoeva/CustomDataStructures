@@ -45,13 +45,6 @@ public class Main {
         System.out.println("--------------------------------------");
 
 
-        Node node = new Node(1);
-        Node node1 = new Node(2);
-        Node node2 = new Node(3);
-
-        node.next = node1;
-        node1.next = node2;
-
         LinkedList linkedList = new LinkedList();
         linkedList.addFirst(1);
         linkedList.addFirst(2);
@@ -77,28 +70,66 @@ public class Main {
         linkedList.forEach(System.out::println);
 
         int[] array = linkedList.toArray();
+        System.out.println(array[0]);
 
         LinkedListTail linkedListTail = new LinkedListTail();
-//        doublyLinkedList.addFirst(1);
-//        doublyLinkedList.addFirst(2);
-//        doublyLinkedList.addFirst(3);
+        linkedListTail.addFirst(1);
+        linkedListTail.addFirst(2);
+        linkedListTail.addFirst(3);
 
         linkedListTail.addLast(1);
         linkedListTail.addLast(2);
         linkedListTail.addLast(3);
         linkedListTail.addLast(4);
 
-//        System.out.println(doublyLinkedList.removeFirst());
-//        System.out.println(doublyLinkedList.removeFirst());
-//        System.out.println(doublyLinkedList.removeFirst());
-//        System.out.println(doublyLinkedList.removeFirst());
+
 
         System.out.println(linkedListTail.removeLast());
         System.out.println(linkedListTail.removeLast());
         System.out.println(linkedListTail.removeLast());
         System.out.println(linkedListTail.removeLast());
 
-        System.out.println();
+        DoublyLinkedList doublyLinkedList = new DoublyLinkedList();
+
+        doublyLinkedList.addFirst(1);
+        doublyLinkedList.addFirst(2);
+        doublyLinkedList.addFirst(3);
+        doublyLinkedList.addFirst(4);
+
+        doublyLinkedList.addLast(1);
+        doublyLinkedList.addLast(2);
+        doublyLinkedList.addLast(3);
+        doublyLinkedList.addLast(4);
+
+        System.out.println(doublyLinkedList.removeFirst());
+        System.out.println(doublyLinkedList.removeFirst());
+        System.out.println(doublyLinkedList.removeFirst());
+        System.out.println(doublyLinkedList.removeFirst());
+
+        doublyLinkedList.addLast(1);
+        doublyLinkedList.addLast(2);
+        doublyLinkedList.addLast(3);
+        doublyLinkedList.addLast(4);
+
+        System.out.println("----------------------");
+
+        System.out.println(doublyLinkedList.removeLast());
+        System.out.println(doublyLinkedList.removeLast());
+        System.out.println(doublyLinkedList.removeLast());
+        System.out.println(doublyLinkedList.removeLast());
+
+        doublyLinkedList.addLast(1);
+        doublyLinkedList.addLast(2);
+        doublyLinkedList.addLast(3);
+        doublyLinkedList.addLast(4);
+        doublyLinkedList.addLast(5);
+        doublyLinkedList.addLast(6);
+
+        System.out.println("************");
+
+        System.out.println(doublyLinkedList.get(0));
+        System.out.println(doublyLinkedList.get(3));
+        System.out.println(doublyLinkedList.get(2));
 
 
     }
