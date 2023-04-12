@@ -64,9 +64,8 @@ Functionalities:
 This is a singly linked list with a tail pointer, which can be used to efficiently add or remove elements from both ends of the list. It provides the same functionalities as the LinkedList.
  
 The tail field that stores a reference to the last node in the linked list allows for more efficient addition of elements to the end of the list, as well as easier implementation of certain operations such as removeLast().
-
 In LinkedList, adding an element to the end of the list requires iterating through the entire list to find the last node, which is an O(n) operation. In LinkedListTail, adding an element to the end of the list is an O(1) operation.
 ## DoublyLinkedList
 ![Screenshot_4](https://user-images.githubusercontent.com/110605865/231569750-ab392b2f-c791-4924-8b13-19d085512953.png)
 
-This is an implementation of a doubly linked list, a linear data structure that consists of a sequence of nodes, where each node contains a reference to the **previous** and **next** nodes in the sequence. The size of the list is maintained internally and it provides the same functionalities as the LinkedList.
+This is an implementation of a doubly linked list, a linear data structure that consists of a sequence of nodes, where each node contains a reference to the **previous** and **next** nodes in the sequence, allowing for bi-directional traversal. This means that the doubly linked list can traverse the list in both forward and backward directions, while LinkedList and LinkedList with a tail can only traverse the list in a forward direction. The DoublyLinkedList provides the same functionalities as the LinkedList.
