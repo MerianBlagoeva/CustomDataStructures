@@ -67,5 +67,6 @@ The tail field that stores a reference to the last node in the linked list allow
 
 In LinkedList, adding an element to the end of the list requires iterating through the entire list to find the last node, which is an O(n) operation. In LinkedListTail, adding an element to the end of the list is an O(1) operation.
 ## DoublyLinkedList
+![Screenshot_4](https://user-images.githubusercontent.com/110605865/231569750-ab392b2f-c791-4924-8b13-19d085512953.png)
 
 This is an implementation of a doubly linked list, a linear data structure that consists of a sequence of nodes, where each node contains a reference to the **previous** and **next** nodes in the sequence. The size of the list is maintained internally and it provides the same functionalities as the LinkedList.
