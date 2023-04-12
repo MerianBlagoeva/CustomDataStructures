@@ -64,8 +64,41 @@ public class Main {
 
         linkedList.addFirst(3);
 
-        linkedList.addLast(4);
         System.out.println(linkedList.removeLast());
+        System.out.println(linkedList.removeLast());
+        System.out.println(linkedList.removeLast());
+
+        System.out.println("--------------");
+
+        linkedList.addLast(1);
+        linkedList.addLast(2);
+        linkedList.addLast(3);
+
+        linkedList.forEach(System.out::println);
+
+        int[] array = linkedList.toArray();
+
+        LinkedListTail linkedListTail = new LinkedListTail();
+//        doublyLinkedList.addFirst(1);
+//        doublyLinkedList.addFirst(2);
+//        doublyLinkedList.addFirst(3);
+
+        linkedListTail.addLast(1);
+        linkedListTail.addLast(2);
+        linkedListTail.addLast(3);
+        linkedListTail.addLast(4);
+
+//        System.out.println(doublyLinkedList.removeFirst());
+//        System.out.println(doublyLinkedList.removeFirst());
+//        System.out.println(doublyLinkedList.removeFirst());
+//        System.out.println(doublyLinkedList.removeFirst());
+
+        System.out.println(linkedListTail.removeLast());
+        System.out.println(linkedListTail.removeLast());
+        System.out.println(linkedListTail.removeLast());
+        System.out.println(linkedListTail.removeLast());
+
+        System.out.println();
 
 
     }

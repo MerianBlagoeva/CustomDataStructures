@@ -1,7 +1,8 @@
 import java.util.function.Consumer;
 
-public class LinkedList {
+public class LinkedListTail {
     private Node head;
+    private Node tail;
     private int size;
 
     private void validateIndex(int index) {
@@ -15,6 +16,8 @@ public class LinkedList {
         Node newNode = new Node(number);
         if (!isEmpty()) {
             newNode.next = head;
+        } else {
+            tail = newNode;
         }
         // 2. Head = new node
         head = newNode;
@@ -33,6 +36,9 @@ public class LinkedList {
         int valueToRemove = head.value;
         head = head.next;
         size--;
+        if (isEmpty()) {
+            tail = null;
+        }
         return valueToRemove;
     }
 
@@ -56,13 +62,8 @@ public class LinkedList {
         }
 
         Node newNode = new Node(number);
-        Node currentNode = head;
-
-        while (currentNode.next != null) {
-            currentNode = currentNode.next;
-        }
-
-        currentNode.next = newNode;
+        tail.next = newNode;
+        tail = newNode;
         size++;
     }
 
@@ -80,6 +81,7 @@ public class LinkedList {
 
         int valueToReturn = currentNode.next.value; //Get the value of the last node
         currentNode.next = null;
+        tail = currentNode;
         size--;
         return valueToReturn;
     }
@@ -104,3 +106,4 @@ public class LinkedList {
         return arr;
     }
 }
+
