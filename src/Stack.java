@@ -4,30 +4,30 @@ import java.util.function.Consumer;
  * Custom implementation of LIFO data structure
  */
 
-public class Stack {
-    private static class Node {
-        private final int element;
-        private Node previous;
+public class Stack<T> {
+    private static class Node<E> {
+        private final E element;
+        private Node<E> previous;
 
-        private Node(int element) {
+        private Node(E element) {
             this.element = element;
         }
     }
 
-    private Node top;
+    private Node<T> top;
     private int size;
 
-    public void push(int element) {
-        Node newNode = new Node(element);
+    public void push(T element) {
+        Node<T> newNode = new Node<>(element);
         newNode.previous = top;
         top = newNode;
         size++;
     }
 
-    public int pop() {
+    public T pop() {
         ensureNotEmpty();
 
-        int toRemove = top.element;
+        T toRemove = top.element;
         top = top.previous;
         size--;
         return toRemove;
@@ -39,13 +39,13 @@ public class Stack {
         }
     }
 
-    public int peek() {
+    public T peek() {
         ensureNotEmpty();
         return top.element;
     }
 
-    public void forEach(Consumer<Integer> consumer) {
-        Node current = top;
+    public void forEach(Consumer<T> consumer) {
+        Node<T> current = top;
 
         while (current != null) {
             consumer.accept(current.element);

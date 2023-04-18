@@ -3,29 +3,29 @@ import java.util.function.Consumer;
 /**
  * Custom implementation of ArrayList<> data structure
  */
-public class SmartArray {
-    private int[] data;
+public class SmartArray<T> {
+    private Object[] data;
     private int size;
 
 
     public SmartArray() {
         this.size = 0;
-        this.data = new int[4];
+        this.data = new Object[4];
     }
 
-    private int[] grow() {
+    private Object[] grow() {
         int newLength = data.length * 2;
 
-        int[] newData = new int[newLength];
+        Object[] newData = new Object[newLength];
         System.arraycopy(data, 0, newData, 0, data.length);
 
         return newData;
     }
 
-    private int[] shrink() {
+    private Object[] shrink() {
         int newLength = data.length / 2;
 
-        int[] newData = new int[newLength];
+        Object[] newData = new Object[newLength];
         System.arraycopy(data, 0, newData, 0, size);
 
         return newData;
@@ -37,24 +37,25 @@ public class SmartArray {
         }
     }
 
-    public void add(int element) {
+    public void add(T element) {
         if (size == data.length) {
             data = grow();
         }
         data[size++] = element;
     }
 
-    public int get(int index) {
+    @SuppressWarnings("unchecked")
+    public T get(int index) {
         validateIndex(index);
-        return data[index];
+        return (T)data[index];
     }
 
     public int size() {
         return size;
     }
 
-    public int remove(int index) {
-        int removedElement = get(index);
+    public T remove(int index) {
+        T removedElement = get(index);
 
         if (size - 1 - index >= 0) {
             System.arraycopy(data, index + 1, data, index, size - 1 - index);
@@ -70,18 +71,18 @@ public class SmartArray {
     }
 
 
-    public boolean contains(int element) {
+    public boolean contains(T element) {
         for (int i = 0; i < size; i++) {
-            int next = data[i];
-            if (element == next) {
+            T next = get(i);
+            if (element.equals(next)) {
                 return true;
             }
         }
         return false;
     }
 
-    public void add(int index, int element) {
-        int lastElement = data[size - 1];
+    public void add(int index, T element) {
+        T lastElement = get(size - 1);
 
         for (int i = size - 1; i > index; i--) {
             data[i] = data[i - 1];
@@ -91,9 +92,9 @@ public class SmartArray {
         add(lastElement);
     }
 
-    public void forEach(Consumer<Integer> consumer) {
+    public void forEach(Consumer<T> consumer) {
         for (int i = 0; i < size; i++) {
-            consumer.accept(data[i]);
+            consumer.accept(get(i));
         }
     }
 

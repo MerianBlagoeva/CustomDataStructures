@@ -3,7 +3,7 @@ public class Main {
 
         //Test main class
 
-        Stack stack = new Stack();
+        Stack<Integer> stack = new Stack<>();
 
         stack.push(13);
         stack.push(69);
@@ -21,7 +21,7 @@ public class Main {
 
         System.out.println(stack.size());
 
-        SmartArray smartArray = new SmartArray();
+        SmartArray<Integer> smartArray = new SmartArray<>();
 
         smartArray.add(1);
         smartArray.add(2);
