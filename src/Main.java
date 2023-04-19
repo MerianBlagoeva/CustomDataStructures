@@ -3,16 +3,28 @@ public class Main {
 
         //Test main class
 
-        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
-        list.addLast(1);
-        list.addLast(2);
-        list.addLast(3);
 
-        Integer[] array = list.toArray(Integer.class);
+        Stack<Integer> stack = new Stack<>();
 
-        for (Integer integer : array) {
-            System.out.println(integer);
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+
+        for (int n : stack) {
+            System.out.print(n + " ");
         }
+
+//        DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+//        list.addLast(1);
+//        list.addLast(2);
+//        list.addLast(3);
+//
+//        Integer[] array = list.toArray(Integer.class);
+//
+//        for (Integer integer : array) {
+//            System.out.println(integer);
+//        }
 
 //        Stack<Integer> stack = new Stack<>();
 

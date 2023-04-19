@@ -1,9 +1,26 @@
+import java.util.Iterator;
 import java.util.function.Consumer;
 
 /**
  * Custom implementation of ArrayList<> data structure
  */
-public class SmartArray<T> {
+public class SmartArray<T> implements Iterable<T> {
+
+    private class SmartArrayIterator implements Iterator<T> {
+
+        private int index = 0;
+
+        @Override
+        public boolean hasNext() {
+            return index < size();
+        }
+
+        @Override
+        public T next() {
+            return get(index++);
+        }
+    }
+
     private Object[] data;
     private int size;
 
@@ -47,7 +64,7 @@ public class SmartArray<T> {
     @SuppressWarnings("unchecked")
     public T get(int index) {
         validateIndex(index);
-        return (T)data[index];
+        return (T) data[index];
     }
 
     public int size() {
@@ -92,14 +109,13 @@ public class SmartArray<T> {
         add(lastElement);
     }
 
-    public void forEach(Consumer<T> consumer) {
-        for (int i = 0; i < size; i++) {
-            consumer.accept(get(i));
-        }
-    }
-
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new SmartArrayIterator();
     }
 
 }

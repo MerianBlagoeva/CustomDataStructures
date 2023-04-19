@@ -1,10 +1,28 @@
+import java.util.Iterator;
 import java.util.function.Consumer;
 
 /**
  * Custom implementation of LIFO data structure
  */
 
-public class Stack<T> {
+public class Stack<T> implements Iterable<T> {
+
+    private class StackIterator implements Iterator<T> {
+
+        private Node<T> current = top;
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public T next() {
+            T element = current.element;
+            current = current.previous;
+            return element;
+        }
+    }
+
     private static class Node<E> {
         private final E element;
         private Node<E> previous;
@@ -44,20 +62,16 @@ public class Stack<T> {
         return top.element;
     }
 
-    public void forEach(Consumer<T> consumer) {
-        Node<T> current = top;
-
-        while (current != null) {
-            consumer.accept(current.element);
-            current = current.previous;
-        }
-    }
-
     public int size() {
         return size;
     }
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new StackIterator();
     }
 }
