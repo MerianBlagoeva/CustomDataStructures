@@ -1,14 +1,16 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.function.Consumer;
 
-public class LinkedListTail {
-    private Node head;
-    private Node tail;
+public class LinkedListTail<T> {
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
-    public static class Node {
-        public int value;
-        public Node next;
+    public static class Node<T> {
+        public T value;
+        public Node<T> next;
 
-        public Node(int value) {
+        public Node(T value) {
             this.value = value;
         }
 
@@ -24,9 +26,13 @@ public class LinkedListTail {
         }
     }
 
-    public void addFirst(int number) {
+    public int size() {
+        return size;
+    }
+
+    public void addFirst(T element) {
         // 1. Create node
-        Node newNode = new Node(number);
+        Node<T> newNode = new Node<>(element);
         if (!isEmpty()) {
             newNode.next = head;
         } else {
@@ -42,11 +48,11 @@ public class LinkedListTail {
         return size == 0;
     }
 
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) {
             throw new IllegalStateException("Can't remove from empty list!");
         }
-        int valueToRemove = head.value;
+        T valueToRemove = head.value;
         head = head.next;
         size--;
         if (isEmpty()) {
@@ -55,10 +61,10 @@ public class LinkedListTail {
         return valueToRemove;
     }
 
-    public int get(int index) {
+    public T get(int index) {
         validateIndex(index);
         int currentIndex = 0;
-        Node currentNode = head;
+        Node<T> currentNode = head;
 
         while (currentIndex < index) {
             currentNode = currentNode.next;
@@ -68,49 +74,62 @@ public class LinkedListTail {
         return currentNode.value;
     }
 
-    public void addLast(int number) {
+    public void addLast(T element) {
         if (isEmpty()) {
-            addFirst(number);
+            addFirst(element);
             return;
         }
 
-        Node newNode = new Node(number);
+        Node<T> newNode = new Node<>(element);
         tail.next = newNode;
         tail = newNode;
         size++;
     }
 
-    public int removeLast() {
+    public T removeLast() {
         if (size < 2) {
             return removeFirst();
         }
 
-        Node currentNode = head;
+        Node<T> currentNode = head;
 
         //Loop while we get to the penultimate node
         while (currentNode.next.next != null) {
             currentNode = currentNode.next;
         }
 
-        int valueToReturn = currentNode.next.value; //Get the value of the last node
+        T valueToReturn = currentNode.next.value; //Get the value of the last node
         currentNode.next = null;
         tail = currentNode;
         size--;
         return valueToReturn;
     }
 
-    public void forEach(Consumer<Integer> consumer) {
-        Node currentNode = head;
+    public void forEach(Consumer<T> consumer) {
+        Node<T> currentNode = head;
         for (int i = 0; i < size; i++) {
             consumer.accept(currentNode.value);
             currentNode = currentNode.next;
         }
     }
 
-    public int[] toArray() {
-        int[] arr = new int[size];
+//    public int[] toArray() {
+//        int[] arr = new int[size];
+//        int counter = 0;
+//        Node<T> currentNode = head;
+//        while (currentNode != null) {
+//            arr[counter] = currentNode.value;
+//            counter++;
+//            currentNode = currentNode.next;
+//        }
+//        return arr;
+//    }
+
+    public T[] toArray(Class<T> clazz) {
+        @SuppressWarnings("unchecked")
+        T[] arr = (T[]) Array.newInstance(clazz, size); // create array of type T
         int counter = 0;
-        Node currentNode = head;
+        Node<T> currentNode = head;
         while (currentNode != null) {
             arr[counter] = currentNode.value;
             counter++;

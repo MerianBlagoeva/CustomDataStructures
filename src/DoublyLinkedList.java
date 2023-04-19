@@ -1,18 +1,19 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class DoublyLinkedList {
-    private Node head;
-    private Node tail;
+public class DoublyLinkedList<T> {
+    private Node<T> head;
+    private Node<T> tail;
     private int size;
 
-    public static class Node {
-        public int value;
-        public Node next;
-        public Node prev;
+    public static class Node<T> {
+        public T value;
+        public Node<T> next;
+        public Node<T> prev;
 
-        public Node(int value) {
+        public Node(T value) {
             this.value = value;
         }
 
@@ -28,9 +29,9 @@ public class DoublyLinkedList {
         }
     }
 
-    public void addFirst(int number) {
+    public void addFirst(T element) {
         // 1. Create node
-        Node newNode = new Node(number);
+        Node<T> newNode = new Node<>(element);
         if (!isEmpty()) {
             head.prev = newNode;
             newNode.next = head;
@@ -43,13 +44,13 @@ public class DoublyLinkedList {
         size++;
     }
 
-    public void addLast(int number) {
+    public void addLast(T element) {
         if (isEmpty()) {
-            addFirst(number);
+            addFirst(element);
             return;
         }
 
-        Node newNode = new Node(number);
+        Node<T> newNode = new Node<>(element);
         newNode.prev = tail;
         tail.next = newNode;
         tail = newNode;
@@ -60,11 +61,11 @@ public class DoublyLinkedList {
         return size == 0;
     }
 
-    public int removeFirst() {
+    public T removeFirst() {
         if (isEmpty()) {
             throw new IllegalStateException("Can't remove from empty list!");
         }
-        int valueToRemove = head.value;
+        T valueToRemove = head.value;
         head = head.next;
         if (size > 1) {
             head.prev = null;
@@ -76,21 +77,21 @@ public class DoublyLinkedList {
         return valueToRemove;
     }
 
-    public int removeLast() {
+    public T removeLast() {
         if (size < 2) {
             return removeFirst();
         }
-        int lastElement = tail.value; //Get the value of the last node
+        T lastElement = tail.value; //Get the value of the last node
         tail = tail.prev;
         tail.next = null;
         size--;
         return lastElement;
     }
 
-    public int get(int index) {
+    public T get(int index) {
         validateIndex(index);
 
-        Node currentNode;
+        Node<T> currentNode;
         if (index > size / 2) {  //search from tail to head
             currentNode = tail;
 
@@ -107,18 +108,18 @@ public class DoublyLinkedList {
         return currentNode.value;
     }
 
-    public void forEach(Consumer<Integer> consumer) {
-        Node currentNode = head;
+    public void forEach(Consumer<T> consumer) {
+        Node<T> currentNode = head;
         for (int i = 0; i < size; i++) {
             consumer.accept(currentNode.value);
             currentNode = currentNode.next;
         }
     }
 
-    public int[] toArray() {
-        List<Integer> result = new ArrayList<>();
+    public T[] toArray(Class<T> clazz) {
+        List<T> result = new ArrayList<>();
         forEach(result::add);
-        return result.stream().mapToInt(e -> e).toArray();
+        return result.toArray((T[]) Array.newInstance(clazz, result.size()));
     }
 }
 
