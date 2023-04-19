@@ -11,7 +11,7 @@ In this workshop, i created 5 custom data structures:
 
 Functionalities:
 
-**add(int element):** Adds an element to the end of the SmartArray. If the SmartArray is full, it grows in size by creating a new array with double the capacity and copying the elements over.
+**add(T element):** Adds an element to the end of the SmartArray. If the SmartArray is full, it grows in size by creating a new array with double the capacity and copying the elements over.
 
 **get(int index):** Returns the element at the specified index in the SmartArray. Throws an IndexOutOfBoundsException if the index is out of bounds.
 
@@ -19,11 +19,11 @@ Functionalities:
 
 **remove(int index):** Removes the element at the specified index in the SmartArray and returns the removed element. If the SmartArray is less than 25% full after removal, it shrinks in size by creating a new array with half the capacity and copying the elements over.
 
-**contains(int element):** Returns true if the SmartArray contains the specified element, false otherwise.
+**contains(T element):** Returns true if the SmartArray contains the specified element, false otherwise.
 
-**add(int index, int element):** Adds an element to the SmartArray at the specified index, shifting all the subsequent elements to the right. If the SmartArray is full, it grows in size.
+**add(int index, T element):** Adds an element to the SmartArray at the specified index, shifting all the subsequent elements to the right. If the SmartArray is full, it grows in size.
 
-**forEach(Consumer<Integer> consumer):** Iterates over the elements in the SmartArray and applies the specified action to each element.
+**forEach(Consumer<T> consumer):** Iterates over the elements in the SmartArray and applies the specified action to each element.
 
 **isEmpty():** Returns true if the SmartArray is empty, false otherwise.
 
